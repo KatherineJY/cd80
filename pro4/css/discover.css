@@ -98,4 +98,8 @@ body{
     font-weight: lighter;
     margin-bottom: 10px;
 }
-
+.add-btn{
+    width: 15px;
+    height: 15px;
+    background: blue;
+}

@@ -102,11 +102,16 @@
     <script type="text/javascript" src="js/datatables.min.js"></script>
     <script>
         $(document).ready(function () {
-            $('#example').DataTable({
+            table = $('#example').DataTable({
                 "dom": '<"wrapper"ftp>',
-                "pagingType":   "full_numbers",
-                "order": [[ 1, "asc" ]]
+                "pagingType": "full_numbers",
+                "order": [[1, "asc"]]
             });
+        });
+
+        $('#example tbody').on('click', 'tr', function () {
+            let data = table.row(this).data();
+            alert('You clicked on ' + data[0] + '\'s row');
         });
     </script>
 </body>

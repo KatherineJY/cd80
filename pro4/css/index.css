@@ -87,7 +87,7 @@ body{
 /*************************************************/
 .banner-container{
     width: 100%;
-    height: calc(100vh - 160px - 56px);
+    height: calc(100vh - 120px - 56px);
     background: grey;
     display: flex;
     flex-direction: column;
@@ -146,13 +146,30 @@ body{
 /***************************************************/
 .options-container{
     width: 100%;
-    height: 160px;
+    height: 120px;
     background: #063960;
     box-sizing: border-box;
-    padding: 0 150px;
+    padding: 15px 150px;
     display: flex;
+    align-items: center;
 }
 .option{
     width: 33%;
-    padding: 10px 0;
+    height: 100%;
+    display: flex;
+    color:white;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    justify-content: space-between;
+}
+/* .option:nth-of-type(n+2){
+    border-left: 0.5px solid rgba(255,255,255,0.8);
+} */
+.option-img{
+    height: 60%;
+}
+.line{
+    height: 50%;
+    border-left:0.5px solid rgba(255,255,255,0.6);
 }

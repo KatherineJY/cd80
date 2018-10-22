@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/discover.css">
+    <link rel="stylesheet" href="css/datatables.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav-left">
+            <div id="logo" class="nav-item">
+                <img src="img/logo.png" alt="">
+            </div>
+            <a href="" class="nav-item">HOME</a>
+            <a href="" class="nav-item nav-item-on">DISCOVER</a>
+            <a href="" class="nav-item">MY PORTFOOLIO</a>
+        </div>
+        <div class="nav-right">
+            <div class="search-item">
+                <input type="text" placeholder="CHECK STOCK...">
+                <div class="small-search-btn"></div>
+            </div>
+            <div class="nav-item login-item">LOG IN</div>
+            <div class="nav-item login-item">SIGN UP</div>
+            <div id="hasLogined" class="nav-item"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="title">ALL STOCKS/WATCHlISTS</div>
+        <div class="wrapper">
+            <table id="example">
+                <thead>
+                    <tr>
+                        <th>NAME</th>
+                        <th>SYMBOL</th>
+                        <th>SECTOR</th>
+                        <th>CAPITALIZATION($)</th>
+                        <th>PRICE</th>
+                        <th>RETURN</th>
+                        <th>TREND</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alibaba Group</td>
+                        <td>00001</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Alibaba Group</td>
+                        <td>00001</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Alibaba Group</td>
+                        <td>00001</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Alibaba Group</td>
+                        <td>00001</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Alibaba Group</td>
+                        <td>00001</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/datatables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "dom": '<"wrapper"ftp>'
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -131,6 +131,7 @@ body{
     width: 90%;
     height: 40px;
     margin: 1px auto;
+    margin-bottom: 12px;
     box-sizing: border-box;
     padding: 0 10px;
     background: white;
@@ -144,13 +145,29 @@ body{
     display: inline-block;
 }
 .chooser-on{
-    border-bottom: 5px solid skyblue;
+    border-bottom: 5px solid #108ee9;
 }
 a:active,a:visited,a:link{
     color:inherit;
 }
 /*--------------------------------------*/
 .panel-container{
-
+    width: 90%;
+    height: auto;
+    margin:12px auto;
+    background: white;
+    padding: 5px 10px;
+    box-sizing: border-box;
 }
-.pan
+.panel-title{
+    border-left:5px solid #108ee9;
+}
+.panel-title p{
+    margin-left: 5px;
+}
+.pic-holder{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    box-sizing: border-box;
+}

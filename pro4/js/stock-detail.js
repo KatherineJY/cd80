@@ -29,7 +29,9 @@ function draw_chart(chart_id, result) {
         type: "category"
       },
       yAxis: {
-        type: "value"
+        type: "value",
+        min: 'dataMin',
+        max: 'dataMax'
       },
       dataZoom: [
         {

@@ -1,22 +1,4 @@
 $(document).ready(function() {
-  //ajax
-  let send_data = "11";
-  $.ajax({
-    method: "POST",
-    //url: "http://10.220.138.138:5000/get_return_rate",
-    url: "http://10.220.138.138:5000/get_risk_value",
-    //url: "http://10.220.138.138:5000/get_value_volatility",
-    //url: "http://10.220.138.138:5000/get_expected_loss",
-
-    contentType: "application/json",
-    dataType: "json",
-    data: JSON.stringify(send_data),
-    success: function(result) {
-      console.log(result);
-    }
-  });
-
-  //let relations = [[0,1,5],[2,0,7],[4,9,0]];
 
   showRiskChart();
 });

@@ -35,7 +35,7 @@ function draw_chart(chart_id, result) {
         {
           type: "inside",
           start: 0,
-          end: 10
+          end: 50
         },
         {
           start: 0,

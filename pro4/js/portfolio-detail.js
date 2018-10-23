@@ -22,25 +22,31 @@ $(document).ready(function() {
 });
 
 function showRiskChart() {
-  let categories = [{ name: "IT" }];
+  let categories = [{ name: "IT" },{ name: "C" },];
   let stock_info = [
-    { id: "0", name: "stock1", value: 1, category: "IT" },
-    { id: "1", name: "stock2", value: 2, category: "IT" },
-    { id: "2", name: "stock3", value: 3, category: "IT" },
-    { id: "3", name: "stock4", value: 4, category: "IT" },
-    { id: "4", name: "stock5", value: 5, category: "IT" }
+    { id: "0", name: "stock1", value: 1, category: 0 },
+    { id: "1", name: "stock2", value: 2, category: 1 },
+    { id: "2", name: "stock3", value: 3, category: 1 },
+    { id: "3", name: "stock4", value: 4, category: 1 },
+    { id: "4", name: "stock5", value: 5, category: 1 }
   ];
   let relations = [
-    { source: "0", target: "1" },
-    { source: "0", target: "2" },
-    { source: "0", target: "3" },
-    { source: "0", target: "4" }
+    { source: "0", target: "1", value:1 },
+    { source: "0", target: "2", value:2 },
+    { source: "0", target: "3", value:3 },
+    { source: "0", target: "4", value:4 }
   ];
 
   stock_info.forEach((stock)=>{
       stock.symbolSize = stock.value*10;
       stock.x = Math.random()*10;
       stock.y = Math.random()*10;
+  })
+
+  relations.forEach((link)=>{
+      link.lineStyle = {
+              width: link.value
+      };
   })
 
   let risk_chart = echarts.init($("#risk-chart")[0],'walden');

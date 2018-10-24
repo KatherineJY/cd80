@@ -3,7 +3,6 @@ html{
     height: auto;
 }
 body{
-
 }
 /*************************/
 .nav{
@@ -32,6 +31,7 @@ body{
     padding: 10px 15px;
     color:white;
     cursor: pointer;
+    
 }
 .nav-item:hover{
     background: rgba(255,255,255,0.1);
@@ -51,9 +51,10 @@ body{
 #logo:hover{
     background: rgba(255,255,255,0);
 }
-#hasLogined{
+.hasLogined{
     width: 200px;
-    display: none;
+    padding: 16px 0;
+    display: block;
 }
 /*****************small search*****/
 .search-item{
@@ -88,16 +89,18 @@ body{
 .banner-container{
     width: 100%;
     height: calc(100vh - 120px - 56px);
-    background: grey;
     display: flex;
     flex-direction: column;
+    background: url(../img/bg.jpg) no-repeat center 80%/100% auto;
     align-items: center;
-    justify-content: space-around;
+    justify-content:center;
 }
 .banner-title{
     text-align: center;
     font-size: 44px;
     color:white;
+    box-sizing: border-box;
+    padding: 25px 0;
 }
 .search-container{
 
@@ -136,6 +139,7 @@ body{
     color:white;
     line-height: 40px;
     text-align: center;
+    cursor: pointer;
 }
 .hint-container{
     color:white;
@@ -161,12 +165,8 @@ body{
     color:white;
     flex-direction: column;
     align-items: center;
-    cursor: pointer;
     justify-content: space-between;
 }
-/* .option:nth-of-type(n+2){
-    border-left: 0.5px solid rgba(255,255,255,0.8);
-} */
 .option-img{
     height: 60%;
 }

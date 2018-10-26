@@ -6,18 +6,18 @@ let routes = [
     {
         path: "/",
         title: "HOME",
-        component: {Home},
+        component: Home,
         exact: true
     },
     {
         path: "/discover",
         title: "DISCOVER",
-        component: {Discover},
+        component: Discover,
     },
     {
         path: "/myportfolio",
         title: "MY PORTFOLIO",
-        component: {MyPortfolio}
+        component: MyPortfolio
     }
 ];
 

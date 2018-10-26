@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  NavLink
+} from "react-router-dom";
 
-import Home from "./components/Home";
-// import Navigator from './components/Navigator'
 import router from "./model/router";
 
 import logo from "./assets/images/logo.png";
@@ -10,10 +13,7 @@ import "./assets/css/navigator.css";
 import "./assets/css/index.css";
 
 class App extends Component {
-
-  state = {
-    
-  }
+  state = {};
 
   render() {
     return (
@@ -30,7 +30,8 @@ class App extends Component {
                     className="nav-item"
                     activeClassName="nav-item-on"
                     key={key}
-                    exact to={value.path}
+                    exact
+                    to={value.path}
                   >
                     {value.title}
                   </NavLink>
@@ -48,6 +49,26 @@ class App extends Component {
                 );
             })}
           </div>
+
+          {router.map((value, key) => {
+            if (value.exact) {
+              return (
+                <Route
+                  key={key}
+                  exact
+                  path={value.path}
+                  component={value.component}
+                />
+              );
+            } else {
+              return (
+                <Route
+                  key={key}
+                  path={value.path}
+                  component={value.component}
+                />);
+            }
+          })}
         </div>
       </Router>
     );

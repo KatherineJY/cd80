@@ -1,26 +1,55 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+
+import Home from "./components/Home";
+// import Navigator from './components/Navigator'
+import router from "./model/router";
+
+import logo from "./assets/images/logo.png";
+import "./assets/css/navigator.css";
+import "./assets/css/index.css";
 
 class App extends Component {
+
+  state = {
+    
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Router>
+        <div>
+          <div className="nav">
+            <div id="logo" className="nav-item">
+              <img src={logo} alt="" />
+            </div>
+            {router.map((value, key) => {
+              if (value.exact) {
+                return (
+                  <NavLink
+                    className="nav-item"
+                    activeClassName="nav-item-on"
+                    key={key}
+                    exact to={value.path}
+                  >
+                    {value.title}
+                  </NavLink>
+                );
+              } else
+                return (
+                  <NavLink
+                    className="nav-item"
+                    activeClassName="nav-item-on"
+                    key={key}
+                    to={value.path}
+                  >
+                    {value.title}
+                  </NavLink>
+                );
+            })}
+          </div>
+        </div>
+      </Router>
     );
   }
 }

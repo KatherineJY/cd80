@@ -11,13 +11,13 @@ const Step = Steps.Step;
 
 const steps = [
   {
-    title: "SELECT SECTORS",
+    title: "SELECT SECTORS"
   },
   {
-    title: "DISTRIBUTE WEIGHTS",
+    title: "DISTRIBUTE WEIGHTS"
   },
   {
-    title: "GET YOUR PORTFILIO",
+    title: "GET YOUR PORTFILIO"
   }
 ];
 
@@ -50,16 +50,13 @@ class Discover extends Component {
               return <Step key={key} title={item.title} />;
             })}
           </Steps>
+        </div>
+        <div className="container">
+          <div className="title" >{steps[current].title}</div>
           <div className="steps-content">
-            {
-                current==0 && <SelectSectors></SelectSectors>
-            }
-            {
-                current==1 && <DistributeWeights></DistributeWeights>
-            }
-            {
-                current==2 && <GetYourPortfolio></GetYourPortfolio>
-            }
+            {current == 0 && <SelectSectors />}
+            {current == 1 && <DistributeWeights />}
+            {current == 2 && <GetYourPortfolio />}
           </div>
           <div className="steps-action">
             {current < steps.length - 1 && (

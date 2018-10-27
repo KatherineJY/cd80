@@ -1,0 +1,21 @@
+.sector-item{
+    width: 150px;
+    height: 95px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 1px solid #1a82f0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+}
+.sector-item-on{
+    border: 5px solid #1a82f0;
+}
+.title{
+    color:#1a82f0;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: bolder;
+}

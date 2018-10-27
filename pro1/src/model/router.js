@@ -16,20 +16,20 @@ let routes = [
         path: "/discover",
         title: "DISCOVER",
         component: Discover,
-        routes: [
-            {
-                path:'/discover/',
-                component: SelectSectors
-            },
-            {
-                path:'/discover/step2',
-                component: SelectSectors
-            },
-            {
-                path:'/discover/step3',
-                component: SelectSectors
-            },
-        ]
+        // routes: [
+        //     {
+        //         path:'/discover/',
+        //         component: SelectSectors
+        //     },
+        //     {
+        //         path:'/discover/step2',
+        //         component: SelectSectors
+        //     },
+        //     {
+        //         path:'/discover/step3',
+        //         component: SelectSectors
+        //     },
+        // ]
     },
     {
         path: "/myportfolio",

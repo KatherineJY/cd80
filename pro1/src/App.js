@@ -50,25 +50,17 @@ class App extends Component {
             })}
           </div>
 
-          {router.map((value, key) => {
-            if (value.exact) {
-              return (
-                <Route
-                  key={key}
-                  exact
-                  path={value.path}
-                  component={value.component}
-                />
-              );
-            } else {
-              return (
-                <Route
-                  key={key}
-                  path={value.path}
-                  component={value.component}
-                />);
-            }
-          })}
+          {
+            router.map((value, key) => {
+              if (value.exact) {
+                return <Route key={key} exact path={value.path}                     
+                          render={props => (<value.component {...props} routes={value.routes} />)} />
+              } else {
+                return <Route key={key} path={value.path}                     
+                          render={props => (<value.component {...props} routes={value.routes} />)} />
+              }
+          })
+        }
         </div>
       </Router>
     );

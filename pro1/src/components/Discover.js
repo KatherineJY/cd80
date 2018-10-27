@@ -1,24 +1,23 @@
 import React, { Component } from "react";
+import { Steps, Button, message } from "antd";
+import SelectSectors from "../components/Discover/SelectSectors";
+import GetYourPortfolio from "../components/Discover/GetYourPortfolio";
+import DistributeWeights from "../components/Discover/DistributeWeights";
 
 import "antd/dist/antd.css";
 import "../assets/css/discover.css";
-
-import { Steps, Button, message } from "antd";
 
 const Step = Steps.Step;
 
 const steps = [
   {
     title: "SELECT SECTORS",
-    content: "First-content"
   },
   {
     title: "DISTRIBUTE WEIGHTS",
-    content: "Second-content"
   },
   {
     title: "GET YOUR PORTFILIO",
-    content: "three-content"
   }
 ];
 
@@ -51,7 +50,17 @@ class Discover extends Component {
               return <Step key={key} title={item.title} />;
             })}
           </Steps>
-          <div className="steps-content">{steps[current].content}</div>
+          <div className="steps-content">
+            {
+                current==0 && <SelectSectors></SelectSectors>
+            }
+            {
+                current==1 && <DistributeWeights></DistributeWeights>
+            }
+            {
+                current==2 && <GetYourPortfolio></GetYourPortfolio>
+            }
+          </div>
           <div className="steps-action">
             {current < steps.length - 1 && (
               <Button type="primary" onClick={() => this.next()}>

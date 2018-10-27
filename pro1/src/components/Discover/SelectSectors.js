@@ -4,7 +4,7 @@ class SelectSectors extends Component {
     render() {
         return (
             <div>
-                
+                selector
             </div>
         );
     }

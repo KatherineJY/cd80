@@ -24,8 +24,6 @@ class DistributeWeights extends Component {
     super(props);
     this.state = {
       domain: "",
-      // adjustMsg: "OK",
-      // willNext: true,
       data: [
         {
           item: "IT",

@@ -84,3 +84,16 @@
     padding-right: 10px;
     text-align: right;
 }
+/*************************/
+.start-btn{
+    background: #028ac6;
+    width: 130px;
+    height:45px;
+    color:white;
+    border:none;
+    border-radius: 5px;
+}
+.start-btn a{
+    text-decoration: none;
+    color:inherit;
+}

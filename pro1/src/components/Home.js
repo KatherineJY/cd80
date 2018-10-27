@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+// import { Button } from "antd";
 
+// import 'antd/dist/antd.css'
 import '../assets/css/home.css'
 
 class Home extends Component {
@@ -12,6 +15,10 @@ class Home extends Component {
               <b>CUSTOMIZE YOUR ESG PORTFOLIO</b>
             </p>
           </div>
+          {/* <Button type="primary"><Link to="/discover">GET STARTED</Link></Button> */}
+          <button className="start-btn">
+            <Link to="/discover">GET STARTED</Link>
+          </button>
         </div>
         <div className="options-container">
           <div className="option">

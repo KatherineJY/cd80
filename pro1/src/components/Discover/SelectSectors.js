@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Button } from "antd";
-
+import propTypes from 'prop-types';
 import "antd/dist/antd.css";
 import "../../assets/css/sector.css";
 
@@ -11,53 +11,28 @@ class SelectSectors extends Component {
     super(props);
     this.state = {
       domain: "http://10.220.138.177:5000",
-      data: [
-        {
-          title: "IT",
-          esg: 90,
-          checked: false
-        },
-        {
-          title: "FINANCE",
-          esg: 85,
-          checked: false
-        },
-        {
-          title: "AGRICULTURE",
-          esg: 70,
-          checked: false
-        },
-        {
-          title: "REAL STATE",
-          esg: 60,
-          checked: false
-        },
-        {
-          title: "MANUFACTURE",
-          esg: 77,
-          checked: false
-        }
-      ]
+      checkedList:props.checkedList,
+      data: []
     };
   }
 
-  requestData = (apiRoute) => {
+  requestData = apiRoute => {
     var api = this.state.domain + apiRoute;
     let tempData = [];
     axios
       .get(api)
       .then(response => {
         console.log(response);
-        response.data.sector_esg.foreach( (item) => {
+        response.data.sector_esg.forEach((item) => {
           tempData.push({
             title: item[0],
             esg: item[1].toFixed(2),
             checked: false
-          })
-          this.setState({
-            data:tempData
-          })
-        } );
+          });
+        });
+        this.setState({
+          data: tempData
+        });
       })
       .catch(function(error) {
         console.log(error);
@@ -65,8 +40,13 @@ class SelectSectors extends Component {
       });
   };
 
+  getCheckedList = () => {
+    this.state.data.forEach( (item) =>{
+      this.state.checkedList.push( item.title );
+    } );
+  }
+
   componentDidMount() {
-    //this.requestData("/get_stock_info");
     this.requestData("/get_sector");
   }
 
@@ -104,6 +84,14 @@ class SelectSectors extends Component {
       </Row>
     );
   }
+}
+
+SelectSectors.defaultProps = {
+  checkedList:[]
+}
+
+SelectSectors.propTypes = {
+  title:propTypes.array
 }
 
 export default SelectSectors;

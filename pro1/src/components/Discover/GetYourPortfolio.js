@@ -1,20 +1,12 @@
 import React, { Component } from "react";
 import {
-  G2,
   Chart,
   Geom,
   Axis,
   Tooltip,
   Coord,
   Label,
-  Legend,
-  View,
-  Guide,
-  Shape,
-  Facet,
-  Util
-} from "bizcharts";
-import { Slider, InputNumber, Row, Col, Icon } from "antd";
+  Legend} from "bizcharts";
 import DataSet from "@antv/data-set";
 
 class GetYourPortfolio extends Component {
@@ -49,7 +41,6 @@ class GetYourPortfolio extends Component {
 
   render() {
     const { DataView } = DataSet;
-    const { Html } = Guide;
     const dv = new DataView();
     dv.source(this.state.data).transform({
       type: "percent",

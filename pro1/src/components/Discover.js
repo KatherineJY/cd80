@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Steps, Button, message } from "antd";
+import { Steps, Button } from "antd";
+import { Link } from "react-router-dom";
 import SelectSectors from "../components/Discover/SelectSectors";
 import GetYourPortfolio from "../components/Discover/GetYourPortfolio";
 import DistributeWeights from "../components/Discover/DistributeWeights";
@@ -25,7 +26,8 @@ class Discover extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 0
+      current: 0,
+      checkedList: []
     };
   }
 
@@ -52,24 +54,42 @@ class Discover extends Component {
           </Steps>
         </div>
         <div className="container">
-          <div className="title" >{steps[current].title}</div>
+          <div className="title">{steps[current].title}</div>
           <div className="steps-content">
-            {current == 0 && <SelectSectors />}
-            {current == 1 && <DistributeWeights />}
+            {current == 0 && (
+              <SelectSectors
+                ref="selectSectors"
+                checkedList={this.state.checkedList}
+              />
+            )}
+            {current == 1 && (
+              <DistributeWeights
+                ref="distributeWeights"
+                checkedList={this.state.checkedList}
+              />
+            )}
             {current == 2 && <GetYourPortfolio />}
           </div>
           <div className="steps-action">
             {current < steps.length - 1 && (
-              <Button type="primary" onClick={() => this.next()}>
+              <Button
+                type="primary"
+                onClick={() => {
+                  this.refs.selectSectors.getCheckedList();
+                  this.state.setState({
+                    checkedList: this.refs.selectSectors.checkedList
+                  });
+                  this.next();
+                }}
+              >
                 Next
               </Button>
             )}
             {current === steps.length - 1 && (
-              <Button
-                type="primary"
-                onClick={() => message.success("Processing complete!")}
-              >
-                CHECK PORTFOLIO
+              <Button type="primary">
+                <Link exact to="/myportfolio">
+                  CHECK PORTFOLIO
+                </Link>
               </Button>
             )}
             {current > 0 && (

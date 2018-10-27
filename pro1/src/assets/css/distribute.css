@@ -1,3 +1,11 @@
+.distribute-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .pieChartContainer{
-    width: 50%;
+    width: 60%;
+}
+.adjustContainer{
+    width:30%;
 }

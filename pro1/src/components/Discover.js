@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import SelectSectors from "../components/Discover/SelectSectors";
 import GetYourPortfolio from "../components/Discover/GetYourPortfolio";
 import DistributeWeights from "../components/Discover/DistributeWeights";
+import storage from "../model/storage";
+import dataAccess from "../model/dataAccess";
 
 import "antd/dist/antd.css";
 import "../assets/css/discover.css";
@@ -26,19 +28,34 @@ class Discover extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: 0,
-      checkedList: [],
+      current: 0
     };
   }
 
+  componentDidMount = () => {
+    dataAccess.requestData("/get_sector", response => {
+      let tempData = [];
+      if (response != null) {
+        response.data.sector_esg.forEach(item => {
+          tempData.push({
+            title: item[0],
+            esg: item[1].toFixed(2),
+            checked: false
+          });
+        });
+        storage.set("data", tempData);
+      }
+    });
+  };
+
   next = () => {
     const current = this.state.current + 1;
-    this.setState({ current:current });
+    this.setState({ current: current });
   };
 
   prev = () => {
     const current = this.state.current - 1;
-    this.setState({ current:current });
+    this.setState({ current: current });
   };
 
   render() {
@@ -56,17 +73,11 @@ class Discover extends Component {
         <div className="container">
           <div className="title">{steps[current].title}</div>
           <div className="steps-content">
-            {current == 0 && (
-              <SelectSectors
-                ref="selectSectors"
-                checkedList={this.state.checkedList}
-              />
-            )}
-            { 
-              current == 1 && (
+            {current == 0 && <SelectSectors ref="selectSectors" />}
+            {current == 1 && (
               <DistributeWeights
                 ref="distributeWeights"
-                checkedList={this.state.checkedList}
+                checkedList={this.refs.selectSectors.state.checkedList}
               />
             )}
             {current == 2 && <GetYourPortfolio />}

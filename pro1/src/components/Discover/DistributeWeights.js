@@ -23,6 +23,7 @@ class DistributeWeights extends Component {
   }
 
   componentDidMount = () => {
+    console.log(this.props);
     let len = this.props.checkedList.length;
     let tempData = [];
     this.props.checkedList.forEach((item)=>{

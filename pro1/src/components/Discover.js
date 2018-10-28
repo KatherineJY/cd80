@@ -82,7 +82,12 @@ class Discover extends Component {
               <Button
                 type="primary"
                 onClick={() => {
-                  this.refs.selectSectors.getCheckedList();
+                  if(current==0){
+                    this.refs.selectSectors.getCheckedList();
+                  }
+                  else{
+                    this.refs.distributeWeights.getDistributionOfSectors();
+                  }
                   this.next();
                 }}
               >

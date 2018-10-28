@@ -15,6 +15,10 @@ class DistributeWeights extends Component {
     };
   }
 
+  getDistributionOfSectors = () => {
+    storage.set("distributionOfSectors",this.state.data);
+  }
+
   onChange = (key, value) => {
     if (typeof(value)!="number" || isNaN(value) || value > 1 || value < 0) {
       return;

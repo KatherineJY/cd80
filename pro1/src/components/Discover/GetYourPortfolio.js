@@ -8,34 +8,14 @@ import {
   Label,
   Legend} from "bizcharts";
 import DataSet from "@antv/data-set";
+import storage from "../../model/storage"
 
 class GetYourPortfolio extends Component {
   constructor(props) {
     super(props);
     this.state = {
       domain: "",
-      data: [
-        {
-          item: "IT",
-          value: 0.2
-        },
-        {
-          item: "FINANCE",
-          value: 0.2
-        },
-        {
-          item: "AGRICULTURE",
-          value: 0.2
-        },
-        {
-          item: "REAL STATE",
-          value: 0.2
-        },
-        {
-          item: "MANUFACTURE",
-          value: 0.2
-        }
-      ]
+      data: storage.get("distributionOfSectors")
     };
   }
 

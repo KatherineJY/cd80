@@ -10,31 +10,31 @@ class SelectSectors extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: []
+      data: storage.get("data")
     };
   }
 
   getCheckedList = () => {
-    let tempData = [];
-    this.state.data.forEach( (item) =>{
-      if( item.checked )
-      tempData.push( item.title );
+    let checkedList = [];
+    let len = 0;
+    this.state.data.forEach( (item) => {
+      if(item.checked) {
+        len = len+1;
+        checkedList.push({
+          item: item.item,
+          value: 0.0
+        })
+      }
     } );
-    this.setState({
-      checkedList : tempData,
-    },() => {
-      console.log("call back");
-      console.log(this.state.checkedList);
-    });
-    console.log(tempData);
-    console.log(this.state.checkedList);
+    checkedList = checkedList.map( (item)=>{
+      return ({
+        item: item.item,
+        value: parseFloat((1.0/len).toFixed(2))
+      })
+    } );
+    storage.set("data",this.state.data);
+    storage.set("checkedList",checkedList);
   }
-
-  componentDidMount() {
-    this.setState({
-      data:storage.get("data")
-    })
-  }  
 
   clickItem = e => {
     let item = e.target;
@@ -61,7 +61,7 @@ class SelectSectors extends Component {
                 data-key={key}
                 onClick={this.clickItem}
               >
-                <b className="sector-title">{item.title}</b>
+                <b className="sector-title">{item.item}</b>
                 <p>ESG Score: {item.esg}</p>
               </Button>
             </Col>

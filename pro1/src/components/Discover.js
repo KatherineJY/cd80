@@ -38,9 +38,9 @@ class Discover extends Component {
       if (response != null) {
         response.data.sector_esg.forEach(item => {
           tempData.push({
-            title: item[0],
+            item: item[0],
             esg: item[1].toFixed(2),
-            checked: false
+            checked: false,
           });
         });
         storage.set("data", tempData);
@@ -71,15 +71,10 @@ class Discover extends Component {
           </Steps>
         </div>
         <div className="container">
-          <div className="title">{steps[current].title}</div>
+          <div className="title">{steps[current].item}</div>
           <div className="steps-content">
             {current == 0 && <SelectSectors ref="selectSectors" />}
-            {current == 1 && (
-              <DistributeWeights
-                ref="distributeWeights"
-                checkedList={this.refs.selectSectors.state.checkedList}
-              />
-            )}
+            {current == 1 && <DistributeWeights ref="distributeWeights" />}
             {current == 2 && <GetYourPortfolio />}
           </div>
           <div className="steps-action">

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Row, Col, Button } from "antd";
 import propTypes from 'prop-types';
+import storage from '../../model/storage'
+
 import "antd/dist/antd.css";
 import "../../assets/css/sector.css";
 
@@ -8,13 +10,9 @@ class SelectSectors extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
-      checkedList: [],
       data: []
     };
   }
-
-  
 
   getCheckedList = () => {
     let tempData = [];
@@ -33,7 +31,9 @@ class SelectSectors extends Component {
   }
 
   componentDidMount() {
-    
+    this.setState({
+      data:storage.get("data")
+    })
   }  
 
   clickItem = e => {

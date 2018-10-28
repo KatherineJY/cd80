@@ -15,50 +15,31 @@ import "../../assets/css/distribute.css";
 class DistributeWeights extends Component {
   constructor(props) {
     super(props);
+    
     this.state = {
       domain: "",
-      data: [
-        {
-          item: "IT",
-          value: 0.2,
-        },
-        {
-          item: "FINANCE",
-          value: 0.2,
-        },
-        {
-          item: "AGRICULTURE",
-          value: 0.2,
-        },
-        {
-          item: "REAL STATE",
-          value: 0.2,
-        },
-        {
-          item: "MANUFACTURE",
-          value: 0.2,
-        }
-      ]
+      data: []
     };
   }
 
-  componentDidMount(){
-    // let tempData = this.state.data;
-    // tempData.map((item)=>{
-    //   return {
-    //     item: item.item,
-    //     value: item.value,
-    //   }
-    // })
+  componentDidMount = () => {
+    let len = this.props.checkedList.length;
+    let tempData = [];
+    this.props.checkedList.forEach((item)=>{
+      tempData.push({
+        item: item,
+        value: (1.0/len),
+      });
+    })
+    this.setState({
+      data:tempData
+    });
   }
 
   onChange = (key,value) => {
     if (isNaN(value) || value>1 || value<0) {
       return;
     }
-    // console.log(value);
-    // value = value.toFixed(2);
-    // console.log(value);
     let tempData = this.state.data;
     let sum = 0;
     console.log(key);
@@ -84,8 +65,6 @@ class DistributeWeights extends Component {
       data:tempData
     })
   }
-  
-   
 
   render() {
     const { DataView } = DataSet;

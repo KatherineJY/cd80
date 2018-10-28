@@ -42,13 +42,14 @@ class SelectSectors extends Component {
 
   getCheckedList = () => {
     this.state.data.forEach( (item) =>{
-      this.state.checkedList.push( item.title );
+      if( item.checked )
+        this.state.checkedList.push( item.title );
     } );
   }
 
   componentDidMount() {
     this.requestData("/get_sector");
-  }
+  }  
 
   clickItem = e => {
     let item = e.target;

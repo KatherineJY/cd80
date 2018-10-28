@@ -27,22 +27,22 @@ class Discover extends Component {
     super(props);
     this.state = {
       current: 0,
-      checkedList: []
+      checkedList: [],
     };
   }
 
   next = () => {
     const current = this.state.current + 1;
-    this.setState({ current });
+    this.setState({ current:current });
   };
 
   prev = () => {
     const current = this.state.current - 1;
-    this.setState({ current });
+    this.setState({ current:current });
   };
 
   render() {
-    const { current } = this.state;
+    const current = this.state.current;
     return (
       <div>
         <div className="container">
@@ -62,7 +62,8 @@ class Discover extends Component {
                 checkedList={this.state.checkedList}
               />
             )}
-            {current == 1 && (
+            { 
+              current == 1 && (
               <DistributeWeights
                 ref="distributeWeights"
                 checkedList={this.state.checkedList}
@@ -76,9 +77,6 @@ class Discover extends Component {
                 type="primary"
                 onClick={() => {
                   this.refs.selectSectors.getCheckedList();
-                  this.state.setState({
-                    checkedList: this.refs.selectSectors.checkedList
-                  });
                   this.next();
                 }}
               >

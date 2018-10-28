@@ -1,0 +1,11 @@
+.container {
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    box-sizing: border-box;
+    padding: 20px 20px;
+  }
+  .title {
+    font-weight: lighter;
+    margin-bottom: 10px;
+  }

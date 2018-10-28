@@ -14,6 +14,16 @@ let dataAccess = {
             console.log("access data fail"+error);
           });
         },
+    sendData(apiRoute,data){
+      var api = domain + apiRoute;
+      axios.post(api, JSON.stringify(data))
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }
       
 }
 

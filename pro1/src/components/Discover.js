@@ -95,7 +95,15 @@ class Discover extends Component {
               </Button>
             )}
             {current === steps.length - 1 && (
-              <Button type="primary">
+              <Button type="primary"
+                onClick={()=>{
+                  let d = storage.get("distributionOfSectors");
+                  let sendData = [];
+                  d.forEach( (item) => {
+                    sendData.push( [item.item,item.value]);
+                  } );
+                  dataAccess.sendData("/bd_invest_port",sendData);
+                }}>
                 <Link exact to="/myportfolio">
                   CHECK PORTFOLIO
                 </Link>

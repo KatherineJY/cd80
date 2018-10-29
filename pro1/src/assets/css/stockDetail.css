@@ -1,0 +1,10 @@
+.tabsHolder{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 50px;
+}
+.cardStyle{
+    border: none;
+    color: #0f2a68;
+    text-align: center;
+}

@@ -51,7 +51,7 @@ class SelectSectors extends Component {
   render() {
     return (
       <Row type="flex" justify="space-around">
-        {this.state.data.map((item, key) => {
+        {this.state.data&&this.state.data.map((item, key) => {
           return (
             <Col key={key}>
               <Button

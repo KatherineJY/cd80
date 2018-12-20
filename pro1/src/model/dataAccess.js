@@ -7,7 +7,7 @@ let dataAccess = {
         axios
           .get(api)
           .then(response => {
-            console.log(response);
+            // console.log(response);
             handleData(response);
           })
           .catch(function(error) {
